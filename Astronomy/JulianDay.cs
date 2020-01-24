@@ -17,6 +17,11 @@ namespace Astronomy
         {
             return new JulianDay(DateTime.UtcNow);
         }
+
+        public static DateTime ToUTCDate(double jdn)
+        {
+            return new JulianDay(jdn).ToUTCDate();
+        }
         #endregion
 
         #region Public Properties
@@ -111,6 +116,11 @@ namespace Astronomy
             }
         }
         #endregion
+
+        public DateTime ToUTCDate()
+        {
+            return new DateTime(Year, Month, Day, Hour, Minute, Second, DateTimeKind.Utc);
+        }
 
         public JulianDay AddDays(double Days)
         { return new JulianDay(this.JulianDayNumber + Days); }
